@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         ),
         body: ListView(
           children: [
-            Task("Estudo Flutter"),
+            Task("Estudo Flutter kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkAAAA"),
             Task("Estudo JavaScript"),
             Task("Estudo DART"),
             Task("Tocar Guitarra"),

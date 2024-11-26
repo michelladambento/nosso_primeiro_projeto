@@ -28,12 +28,16 @@ class Task extends StatelessWidget {
                   height: 100,
                   color: Colors.black26,
                 ),
-                Text(
-                  nome,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.blueGrey
+                Container(
+                  width: 200,
+                  child: Text(
+                    nome,
+                    style: TextStyle(
+                      fontSize: 20,
+                        overflow:  TextOverflow.ellipsis,
+                      color: Colors.blueGrey
 
+                    ),
                   ),
                 ),
                 // Container(
