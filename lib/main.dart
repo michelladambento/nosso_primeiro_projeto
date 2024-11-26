@@ -64,6 +64,7 @@ class _MyAppState extends State<MyApp> {
                   'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',
                   5
               ),
+              SizedBox(height: 80,)
             ],
           ),
         ),

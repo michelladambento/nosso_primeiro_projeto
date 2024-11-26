@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nosso_primeiro_projeto/difficult.dart';
 
 class Task extends StatefulWidget {
   final String nome;
@@ -71,48 +72,10 @@ class _TaskState extends State<Task> {
                                 color: Colors.blueGrey),
                           ),
                         ),
-                        Row(children: [
-                          Icon(Icons.star,
-                              size: 15,
-                              color: (widget.dificuldade >= 1)
-                                  ? Colors.blue
-                                  : Colors.blue[100]),
-                          Icon(Icons.star,
-                              size: 15,
-                              color: (widget.dificuldade >= 2)
-                                  ? Colors.blue
-                                  : Colors.blue[100]),
-                          Icon(Icons.star,
-                              size: 15,
-                              color: (widget.dificuldade >= 3)
-                                  ? Colors.blue
-                                  : Colors.blue[100]),
-                          Icon(Icons.star,
-                              size: 15,
-                              color: (widget.dificuldade >= 4)
-                                  ? Colors.blue
-                                  : Colors.blue[100]),
-                          Icon(Icons.star,
-                              size: 15,
-                              color: (widget.dificuldade >= 5)
-                                  ? Colors.blue
-                                  : Colors.blue[100]),
-                        ])
+                        Difficulty(widget: widget)
                       ],
                     ),
-                    // Container(
-                    //     child: Column(
-                    //         children: [
-                    //           Text(nome),
-                    //           Row(children: [
-                    //             Icon(Icons.star),
-                    //             Icon(Icons.star),
-                    //             Icon(Icons.star),
-                    //             Icon(Icons.star),
-                    //           ])
-                    //         ])
-                    // ),
-                    Container(
+                                     Container(
                       height: 52,
                       width: 52,
                       child: ElevatedButton(
@@ -165,3 +128,4 @@ class _TaskState extends State<Task> {
     );
   }
 }
+
