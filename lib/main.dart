@@ -2,11 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:nosso_primeiro_projeto/task_item.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+
+
+  MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool opacidade = true;
 
   @override
   Widget build(BuildContext context) {
@@ -25,33 +34,48 @@ class MyApp extends StatelessWidget {
           leading: Container(),// só para manter espaço esse leading
           title: Text('Tarefas'),
         ),
-        body: ListView(
-          children: [
-            Task(
-                "Estudo Flutter kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkA",
-                'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large'
-            ),
-            Task(
-                "Estudo JavaScript",
-                'https://manhattanmentalhealthcounseling.com/wp-content/uploads/2019/06/Top-5-Scientific-Findings-on-MeditationMindfulness-881x710.jpeg'
-            ),
-            Task(
-                "Estudo DART",
-                'https://thebogotapost.com/wp-content/uploads/2017/06/636052464065850579-137719760_flyer-image-1.jpg'
-            ),
-            Task(
-                "Tocar Guitarra",
-                'https://images.pexels.com/photos/161172/cycling-bike-trail-sport-161172.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-            ),
-            Task(
-                "Aprender idiomas",
-                'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large'
-            ),
-          ],
+        body: AnimatedOpacity(
+          opacity: opacidade? 1 : 0,
+          duration: Duration(milliseconds: 800),
+          child: ListView(
+            children: [
+              Task(
+                  "Estudo Flutter kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkA",
+                  'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',
+                  3
+              ),
+              Task(
+                  "Estudo JavaScript",
+                  'https://manhattanmentalhealthcounseling.com/wp-content/uploads/2019/06/Top-5-Scientific-Findings-on-MeditationMindfulness-881x710.jpeg',
+                  2
+              ),
+              Task(
+                  "Estudo DART",
+                  'https://thebogotapost.com/wp-content/uploads/2017/06/636052464065850579-137719760_flyer-image-1.jpg',
+                  4
+              ),
+              Task(
+                  "Tocar Guitarra",
+                  'https://images.pexels.com/photos/161172/cycling-bike-trail-sport-161172.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                  1,
+              ),
+              Task(
+                  "Aprender idiomas",
+                  'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',
+                  5
+              ),
+            ],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
-            onPressed: (){}
+            onPressed: (){
+              setState(() {
+                opacidade = !opacidade;
+              });
+            },
+          child: Icon(opacidade? Icons.visibility_off : Icons.visibility),
         ),
+
 
       ),
     );
