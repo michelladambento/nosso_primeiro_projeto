@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 
 class Task extends StatefulWidget {
-
   final String nome;
+  final String foto;
 
-  const Task(this.nome, {super.key});
+  const Task(this.nome, this.foto, {super.key});
 
   @override
   State<Task> createState() => _TaskState();
 }
 
 class _TaskState extends State<Task> {
-
   int nivel = 0;
-  
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -38,6 +37,10 @@ class _TaskState extends State<Task> {
                       width: 72,
                       height: 100,
                       color: Colors.black26,
+                      child: Image.network(
+                          widget.foto,
+                          fit: BoxFit.cover,
+                      ),
                     ),
                     Container(
                       width: 200,
@@ -61,17 +64,30 @@ class _TaskState extends State<Task> {
                     //           ])
                     //         ])
                     // ),
-                    ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            nivel++;
-                          });
-                        },
-                        child: Icon(Icons.arrow_drop_up))
+                    Container(
+                      height: 52,
+                      width: 52,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              nivel++;
+                            });
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Icon(Icons.arrow_drop_up),
+                              Text(
+                                'UP',
+                                style: TextStyle(fontSize: 12),
+                              )
+                            ],
+                          )),
+                    )
                   ],
                 ),
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -79,16 +95,19 @@ class _TaskState extends State<Task> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       child: LinearProgressIndicator(
-                        color: Colors.yellow,
-                        value: nivel/10,
+                        color: Colors.orange,
+                        value: nivel / 10,
                       ),
                       width: 200,
                     ),
                   ),
-                  Text('Nível $nivel',style: TextStyle(color: Colors.white, fontSize: 16)),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('Nível $nivel',
+                        style: TextStyle(color: Colors.white, fontSize: 16)),
+                  ),
                 ],
               ),
-
             ],
           ),
         ]),
